@@ -14,6 +14,7 @@ export default class App extends Component {
                     <div className="navbar p-0">
                         <Filter />
                     </div>
+                    <hr className="bg-dark my-2" />
                     {<TodoList />}
                 </div>
             </div>

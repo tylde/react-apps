@@ -4,24 +4,87 @@ body, html {
     background-color: #242424;
 }
 
-.form-group input[type="checkbox"] {
-    display: none;
+.todo-list-group > .todo-list-item {
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+
+    width: 100%;
+}
+.todo-list-group > .todo-list-item:last-child {
+    border: 1px solid gray;
 }
 
-.form-group input[type="checkbox"] + .btn-group > label span {
-    width: 20px;
+.todo-list-group > :first-child {
+    border-radius: .3rem .3rem 0px 0px; 
+}
+.todo-list-group > :first-child button:first-child {
+    border-radius: .3rem .0px 0px 0px; 
+    float: left;
+}
+.todo-list-group > :first-child button:last-child {
+    border-radius: 0px .3rem 0px 0px; 
+}
+.todo-list-group > :first-child button {
+
 }
 
-.form-group input[type="checkbox"] + .btn-group > label span:first-child {
-    display: none;
+.todo-list-group > :last-child {
+    border-radius: 0px 0px .3rem .3rem; 
 }
-.form-group input[type="checkbox"] + .btn-group > label span:last-child {
-    display: inline-block;   
+.todo-list-group > :last-child button:first-child {
+    border-radius:  0px 0px 0px .3rem; 
+}
+.todo-list-group > :last-child button:last-child {
+    border-radius: 0px 0px .3rem 0px;
 }
 
-.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+
+.todo-list-group > :only-child {
+    border-radius: .3rem .3rem .3rem .3rem; 
+}
+.todo-list-group > :only-child button:first-child {
+    border-radius: .3rem 0px 0px .3rem; 
+}
+.todo-list-group > :only-child button:last-child {
+    border-radius: 0px .3rem .3rem 0px; 
+}
+
+.todo-list-group > * button:not(:last-child) {
+    border-right: 1px solid gray;
+}
+
+
+.todo-success {
+    background-color: rgb(0, 151, 50);
+}
+
+.todo-btn-group {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.todo-btn {
     display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    /* border-radius: .25rem; */
 }
-.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
-    display: none;   
+
+
+.item {
+    line-height: 2.4rem;
+    margin: 0 10px 0 10px;
 }

@@ -12,16 +12,16 @@ class TodoList extends Component {
     renderList() {
         return this.props.todos.map((todo) => {
             return (
-                <a href="#" className="list-group-item clearfix" key={todo.id}>
-                    <span className="glyphicon glyphicon-file"></span>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    <span className="pull-right">
-                    <button className="btn btn-xs btn-info">CCS</button>
-                    <button className="btn btn-xs btn-warning">
-                        <span className="glyphicon glyphicon-trash"></span>
-                    </button>
-                    </span>
-                </a>
+                <div key={todo.id} className={"todo-list-item"  + (todo.isCompleted ? " " : " ")}>
+                    <div className="todo-btn-group">    
+                        <button className={"todo-btn" + (todo.isCompleted ? " todo-success text-white" : " ")}><i className={todo.isCompleted ? "icon-ok" : "icon-cancel"} /></button>
+                        <div className="item">
+                            {todo.text}
+                        </div>
+                        <button className="todo-btn"><i className="icon-pencil" /></button>
+                        <button className="todo-btn"><i className="icon-trash" /></button>
+                    </div>
+                </div>
             );
         });
     }
@@ -30,7 +30,7 @@ class TodoList extends Component {
         console.log('TODOS:', this.props.todos);
         return (
             <div className="bg-dark text-white my-2 p-2 rounded">
-                <div className="list-group">
+                <div className="todo-list-group">
                     {this.renderList()}
                 </div>
             </div>
