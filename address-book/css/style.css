@@ -1,0 +1,268 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background: #222222;
+}
+
+.app-container {
+    width: 960px;
+    height: 100%;
+    padding: 10px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    flex-flow: column;
+}
+
+/* ======================================== */
+
+.navbar {
+    display: flex;
+    flex-grow: 0;
+    background-color: #343A40;
+    padding: 5px;
+    margin: 0px 10px;
+}
+
+
+
+/* ======================================== */
+
+.group-filter {
+    display: flex;
+    flex-grow: 0;
+    background-color: #343A40;
+    padding: 5px;
+    margin: 10px 10px;
+}
+
+
+
+
+
+/* ======================================== */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+    flex-grow: 1;
+}
+
+.row > :first-child {
+    border-right: 1px solid #343A40;
+}
+
+
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+
+    padding: 0px 10px;
+
+    position: relative;
+}
+
+.contacts-list, .contacts-detail {
+    background-color: #343A40;
+    padding: .5rem;
+
+    overflow-y: scroll;
+}
+
+
+.contacts-list {
+    
+}
+
+.contacts-list > :not(:first-child):not(:last-child) {
+    margin: .2rem 0px;
+}
+
+.contacts-list > :nth-child(even) {
+    background-color: #2C3034;
+}
+
+
+.contacts-item {
+    height: 40px;
+    padding: 0px 0px;
+
+    font-size: 1rem;
+
+    background-color: #212529;
+    transition: background-color 0.1s;
+    
+    display: flex;
+}
+
+.contacts-item:hover {
+    cursor: pointer;
+    background-color: rgb(68, 74, 78);
+
+    transition: background-color 0.1s;
+}
+
+.contacts-item-image {
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+    /* padding: 5px 5px; */
+
+    text-align: center;
+
+    border: 2px solid black;
+
+}
+
+.contacts-item-name {
+    color: white;
+    line-height: 40px;
+    padding: 0px 10px;
+}
+
+.contacts-item-groups {
+    line-height: 40px;
+    padding: 0px 0.5rem 0px 0px;
+    margin-left: auto;
+
+    display: flex;
+}
+
+.contacts-item-groups-item {
+    width: .25rem;
+    height: 100%;
+    margin: 0px .2rem;
+}
+
+
+.contacts-detail {
+    
+}
+
+.contacts-detail-image {
+    height: 169.6px;
+    background-color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+.contacts-detail-info {
+
+}
+
+.contacts-detail-manage {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn {
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer; 
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+.btn-group > button {
+    max-width: 100%;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.btn-group :first-child {
+    margin-right: .15rem;
+}
+.btn-group :last-child {
+    margin-left: .15rem;
+}
+.btn-group :not(:first-child):not(:last-child) {
+    margin-left: .15rem;
+    margin-right: .15rem;
+}
+
+
+
+
+.btn-success {background-color: #28A745; transition: background-color 0.2s;} 
+.btn-success:hover {background-color: #218838; transition: background-color 0.2s;}
+.btn-inline-success {background-color: transparent; border: 1px solid #218838; transition: background-color 0.2s; } 
+.btn-inline-success:hover {background-color: #218838; transition: background-color 0.2s; }
+
+.btn-primary {background-color: #007BFF; transition: background-color 0.2s;} 
+.btn-primary:hover {background-color: #0069D9; transition: background-color 0.2s;}
+.btn-inline-primary {background-color: transparent; border: 1px solid #0069D9; transition: background-color 0.2s; } 
+.btn-inline-primary:hover {background-color: #0069D9; transition: background-color 0.2s; }
+
+.btn-info {background-color: #17A2B8; transition: background-color 0.2s;} 
+.btn-info:hover {background: #138496; transition: background-color 0.2s;}
+.btn-inline-info {background-color: transparent; border: 1px solid #138496; transition: background-color 0.2s; } 
+.btn-inline-info:hover {background-color: #138496; transition: background-color 0.2s; }
+
+.btn-warning {background-color: #FFC107; transition: background-color 0.2s;} 
+.btn-warning:hover {background: #FFC107; transition: background-color 0.2s;}
+.btn-inline-warning {background-color: transparent; border: 1px solid #e68a00; transition: background-color 0.2s; } 
+.btn-inline-warning:hover {background-color: #e68a00; transition: background-color 0.2s; }
+
+.btn-danger {background-color: #DC3545; transition: background-color 0.2s;} 
+.btn-danger:hover {background: #C82333; transition: background-color 0.2s;}
+.btn-inline-danger {background-color: transparent; border: 1px solid #C82333; transition: background-color 0.2s; } 
+.btn-inline-danger:hover {background-color: #C82333; transition: background-color 0.2s; }
+
+.btn-purple {background-color: #682ed3; transition: background-color 0.2s;} 
+.btn-purple:hover {background: #6022d4; transition: background-color 0.2s;}
+.btn-inline-purple {background-color: transparent; border: 1px solid #6022d4; transition: background-color 0.2s; } 
+.btn-inline-purple:hover {background-color: #6022d4; transition: background-color 0.2s; }
+
+.btn-pink {background-color: #e83e8c; transition: background-color 0.2s;} 
+.btn-pink:hover {background: #c91c6d; transition: background-color 0.2s;}
+.btn-inline-pink {background-color: transparent; border: 1px solid #c91c6d; transition: background-color 0.2s; } 
+.btn-inline-pink:hover {background-color: #c91c6d; transition: background-color 0.2s; }
+
+.btn-teal {background-color: #20c997; transition: background-color 0.2s;} 
+.btn-teal:hover {background: #089c70; transition: background-color 0.2s;}
+.btn-inline-teal {background-color: transparent; border: 1px solid #089c70; transition: background-color 0.2s; } 
+.btn-inline-teal:hover {background-color: #089c70; transition: background-color 0.2s; }
+
+
+
+
+
+
+
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #ccc;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #555;
+}
