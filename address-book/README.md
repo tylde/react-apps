@@ -1,1 +1,1 @@
-# React+Redux Starter
+# Address Book React Application
