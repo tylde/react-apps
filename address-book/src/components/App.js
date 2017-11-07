@@ -8,9 +8,11 @@ export default class App extends Component {
     render() {
         return(
             <div className="app-container">
-                <Navbar />
-                <GroupFilter />
-                <Contacts />
+                <div className="container">
+                    <Navbar />
+                    <GroupFilter />
+                    <Contacts />
+                </div>
             </div>
         );
     }
