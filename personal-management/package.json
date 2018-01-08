@@ -5,7 +5,8 @@
   "main": "webpack.common.js",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.common.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --compilers js:babel-register --require ./src/test/helper.js --recursive",
+    "tdd": "npm test -- --watch",
     "build": "webpack --config webpack.prod.js"
   },
   "author": "tylde",
@@ -15,7 +16,11 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
     "css-loader": "^0.28.8",
+    "jsdom": "^11.5.1",
+    "mocha": "^4.1.0",
+    "react-addons-test-utils": "^15.6.2",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.0",
