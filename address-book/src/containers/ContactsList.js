@@ -15,7 +15,7 @@ class ContactsList extends Component {
     renderList() {
         return this.props.contacts.map((contact) => {
             return (
-                <ContactsItem key={contact.id} contact={contact} />
+                <ContactsItem key={contact.id} contact={contact} groups={this.props.groups} />
             );
         });
     }
@@ -31,8 +31,8 @@ class ContactsList extends Component {
     }
 }
 
-function mapStateToProps({ contacts }) {
-    return { contacts }
+function mapStateToProps({ contacts, groups }) {
+    return { contacts, groups }
 }
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ /* actions */ }, dispatch);

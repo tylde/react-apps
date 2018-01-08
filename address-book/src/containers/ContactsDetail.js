@@ -16,15 +16,17 @@ class ContactsDetail extends Component {
                     <div className="contacts-detail-image">
                         
                     </div>
-                    <div className="contacts-detail-info">
-                        
-                    </div>
+
                     <div className="contacts-detail-manage">
                         <div className="btn-group">
-                            <button className="btn btn-info">Edit</button>
-                            <button className="btn btn-success">Groups</button>
-                            <button className="btn btn-danger">Delete</button>
+                            <button className="btn btn-sm btn-info">Edit</button>
+                            <button className="btn btn-sm btn-success">Groups</button>
+                            <button className="btn btn-sm btn-danger">Delete</button>
                         </div>
+                    </div>
+
+                    <div className="contacts-detail-info">
+                        
                     </div>
                 </div>
             </div>

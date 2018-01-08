@@ -19,17 +19,7 @@ const initialState = [
         ],
         email: 'john.doe@gmail.com',
 
-        groups: [
-            {
-                id: 1, name: 'co-workers', color: '#b30000'
-            },
-            {
-                id: 2, name: 'home', color: '#00cc00'
-            },
-            {
-                id: 3, name: 'friend', color: '#0066ff'
-            }
-        ],
+        groups: [1, 2, 5],
         favorite: true
     },
     {
@@ -50,14 +40,7 @@ const initialState = [
         ],
         email: 'john.doe@gmail.com',
 
-        groups: [
-            {
-                id: 2, name: 'home', color: '#00cc00'
-            },
-            {
-                id: 4, name: 'blabla', color: '#ffd900'
-            }
-        ],
+        groups: [2, 4],
         favorite: true
     },
     {
@@ -78,11 +61,7 @@ const initialState = [
         ],
         email: 'john.doe@gmail.com',
 
-        groups: [
-            {
-                id: 3, name: 'friend', color: '#0066ff'
-            }
-        ],
+        groups: [3, 6, 7],
         favorite: false
     },
     {
@@ -103,11 +82,7 @@ const initialState = [
         ],
         email: 'john.doe@gmail.com',
 
-        groups: [
-            {
-                id: 1, name: 'co-workers', color: '#b30000'
-            }
-        ],
+        groups: [1, 4, 8],
         favorite: true
     }
 ];

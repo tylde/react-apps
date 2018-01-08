@@ -1,0 +1,6 @@
+.container {
+  display: flex;
+  width: 250px;
+  background-color: #0b3d66;
+  color: white;
+}
