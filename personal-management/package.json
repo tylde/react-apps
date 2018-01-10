@@ -5,7 +5,7 @@
   "main": "webpack.common.js",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.common.js",
-    "test": "mocha --compilers js:babel-register --require ./src/test/helper.js --recursive",
+    "test": "mocha --require babel-core/register --require ./test/helper.js --require ./test/dom.js ./src/**/*.test.js",
     "tdd": "npm test -- --watch",
     "build": "webpack --config webpack.prod.js"
   },
@@ -18,9 +18,13 @@
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
     "css-loader": "^0.28.8",
-    "jsdom": "^11.5.1",
+    "enzyme": "^3.3.0npm ",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jsdom": "^9.11.0",
     "mocha": "^4.1.0",
     "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.2.0",
+    "sinon": "^4.1.4",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.0",

@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Expenses from './Expenses';
 
-import styles from './Main.css';
+// import styles from './Main.css';
 
 export default class Main extends Component {
   constructor(props) {
@@ -14,12 +14,12 @@ export default class Main extends Component {
 
   render() {
     return (
-      <div className={styles.container}>
+      <div className="main-container">
         Main:
-        <Switch>
+        {/* <Switch>
           <Route path="/" component={Dashboard} />
           <Route path="/expenses" component={Expenses} />
-        </Switch>
+        </Switch> */}
       </div>
     );
   }

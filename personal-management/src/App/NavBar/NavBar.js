@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styles from './NavBar.css';
+// import styles from './NavBar.css';
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -8,6 +8,6 @@ export default class NavBar extends Component {
   }
 
   render() {
-    return <div className={styles.container}>NavBar</div>;
+    return <div className="navbar-container">NavBar</div>;
   }
 }
