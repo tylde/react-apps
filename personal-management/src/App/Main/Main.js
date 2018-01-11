@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Expenses from './Expenses';
 
-// import styles from './Main.css';
+import styles from './Main.scss';
 
 export default class Main extends Component {
   constructor(props) {

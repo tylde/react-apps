@@ -1,5 +1,4 @@
 const path = require('path');
-// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: ['./src/index.js'],
@@ -9,25 +8,14 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        exclude: /node_modules/,
-        loader: ['babel-loader']
-      },
-      //   {
-      //     test: /\.css$/,
-      //     loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-      //   }
-      {
-        test: /\.css$/,
-        loader: 'style-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: 'css-loader',
-        query: {
-          modules: true,
-          localIdentName: '[name]__[local]___[hash:base64:5]'
-        }
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { 
+        test: /\.scss$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
+        ]
       }
     ]
   },
