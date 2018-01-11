@@ -7,9 +7,15 @@ body, html {
 
 .app-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   width: 100vw;
   height: 100vh;
   background-color: crimson;
+}
+
+.middle-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
 }

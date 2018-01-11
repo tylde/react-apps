@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import { Route, Switch } from 'react-router-dom';
+import './Main.scss';
 
 import Dashboard from './Dashboard';
 import Expenses from './Expenses';
-
-import styles from './Main.scss';
+import NotFound from './NotFound';
 
 export default class Main extends Component {
   constructor(props) {
@@ -15,11 +15,11 @@ export default class Main extends Component {
   render() {
     return (
       <div className="main-container">
-        Main:
-        {/* <Switch>
-          <Route path="/" component={Dashboard} />
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
           <Route path="/expenses" component={Expenses} />
-        </Switch> */}
+          <Route component={NotFound} />
+        </Switch>
       </div>
     );
   }

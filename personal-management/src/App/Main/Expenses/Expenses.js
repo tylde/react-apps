@@ -6,6 +6,6 @@ export default class Expenses extends Component {
   }
 
   render() {
-    return <div>Expenses</div>;
+    return <div className="expenses-container page">Expenses</div>;
   }
 }
