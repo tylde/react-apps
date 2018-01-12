@@ -8,6 +8,6 @@ export default class Header extends Component {
   }
 
   render() {
-    return <header className="header-container">Header</header>;
+    return <header className="header-container"></header>;
   }
 }

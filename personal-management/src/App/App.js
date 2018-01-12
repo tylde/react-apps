@@ -14,12 +14,13 @@ export default class App extends Component {
 
       <BrowserRouter history={browserHistory}>
         <div className="app-container">
-          <Header />
+
+          <NavBar />
           <div className="middle-container">
-            <NavBar />
+            <Header />
             <Main />
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </BrowserRouter>
 

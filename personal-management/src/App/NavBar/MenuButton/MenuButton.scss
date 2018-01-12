@@ -1,0 +1,44 @@
+.menu-button-container {
+  &.navbar-active {
+    button {
+      background-color: #5A6775;
+      color: #fff;
+      border-right: 8px solid transparent;
+      cursor: initial;
+
+      &:hover {
+        background-color: #5A6775;
+        color: #fff;
+      }
+    }
+  }
+  button {
+    width: 100%;
+    height: 45px;
+    background-color: #313A47;
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+    border-right: 0px solid transparent;
+    padding-left: 16px;
+
+    color: #777;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 42px;
+    
+    transition: color 0.3s, background-color 0.3s, border 0.3s;
+
+    &:hover {
+      background-color: #5A6775;
+      color: white;
+    }
+  }
+  hr {
+    height: 1px;
+    border: none;
+    margin: 0px;
+    background-color: #404953;
+  }
+}

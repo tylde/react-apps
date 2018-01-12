@@ -2,42 +2,13 @@
   display: flex;
   flex-direction: column;
   width: 250px;
-  // background-color: #0b3d66;
-  background-color: #00171f;
-  padding: 2px;
-  
-  a {
-    &.navbar-active {
-      button {
-        background-color: #007ea7;
-        color: #0b3d66;
-        cursor: initial;
-        &:hover {
-          background-color: #007ea7;
-        }
-      }
-    }
-    button {
-      width: 100%;
-      height: 40px;
-      background-color: #00171f;
-      border: none;
-      border-bottom: 1px solid azure;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      cursor: pointer;
-      outline: none;
+  background-color: #2D3742;
+  color: #fff;
 
-      &:hover {
-        background-color: #003459;
-      }
-
-      
-    }
-    
-  
+  .logo-container {
+    width: 100%;
+    height: 47px;
+    border-bottom: 1px solid #404953;
+    background-color: #2D3742;
   }
 }
