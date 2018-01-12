@@ -6,10 +6,12 @@ import './MenuButton.scss';
 
 export default class MenuButton extends Component {
   static propTypes = {
+    collapsed: PropTypes.bool.isRequired,
     color: PropTypes.string,
     exact: PropTypes.bool,
-    to: PropTypes.string,
-    text: PropTypes.string
+    icon: PropTypes.string.isRequired,
+    to: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
   }
   static defaultProps = {
     color: '#ccc',
@@ -28,10 +30,14 @@ export default class MenuButton extends Component {
         to={this.props.to}
         activeClassName="navbar-active">
         <button style={{ borderColor: this.props.color }}>
-          {this.props.text}
+          <span className="menu-button-icon">
+            <i className={this.props.icon} />
+          </span>
+
+          <span className={this.props.collapsed ? 'menu-button-text collapsed' : 'menu-button-text'}>{this.props.text}</span>
         </button>
         <hr />
-      </NavLink>
+      </NavLink >
     );
 
   }

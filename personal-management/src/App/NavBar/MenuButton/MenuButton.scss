@@ -21,7 +21,7 @@
     border: none;
     outline: none;
     border-right: 0px solid transparent;
-    padding-left: 16px;
+    padding: 0px 0px 0px 0px;
 
     color: #777;
     text-align: left;
@@ -34,6 +34,19 @@
       background-color: #5A6775;
       color: white;
     }
+
+    .menu-button-icon {
+      position: absolute;
+      text-align: center;
+      width: 44px;
+    }
+
+    .menu-button-text {
+      margin-left: 55px;
+      opacity: 1; transition: opacity 0.2s 0.2s;
+      &.collapsed { opacity: 0; transition: opacity 0.2s; }
+    }
+
   }
   hr {
     height: 1px;
