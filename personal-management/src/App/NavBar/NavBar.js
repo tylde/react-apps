@@ -35,8 +35,8 @@ export default class NavBar extends Component {
           <MenuButton to="/projects" text="Projects" collapsed={this.state.collapsed} icon="icon-fire" color="#E9A740" />
           <MenuButton to="/expenses" text="Expenses" collapsed={this.state.collapsed} icon="icon-chart-bar" color="#FF3458" />
           <MenuButton to="/todos" text="Todos" collapsed={this.state.collapsed} icon="icon-list-alt" color="#27A4A5" />
-          <MenuButton to="/appointments" text="Appointments" collapsed={this.state.collapsed} icon="icon-location" color="#DF7712" />
-          <MenuButton to="/goals" text="Goals" collapsed={this.state.collapsed} icon="icon-bullseye" color="#27A740" />
+          <MenuButton to="/appointments" text="Appointments" collapsed={this.state.collapsed} icon="icon-clock" color="#DF7712" />
+          <MenuButton to="/goals" text="Goals" collapsed={this.state.collapsed} icon="icon-award" color="#27A740" />
           <MenuButton to="/ideas" text="Ideas" collapsed={this.state.collapsed} icon="icon-lightbulb" color="#27A740" />
           <MenuButton to="/calendar" text="Calendar" collapsed={this.state.collapsed} icon="icon-calendar-empty" />
           <MenuButton to="/settings" text="Settings" collapsed={this.state.collapsed} icon="icon-cog" />

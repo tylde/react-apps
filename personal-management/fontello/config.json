@@ -95,6 +95,18 @@
       "css": "lightbulb",
       "code": 61675,
       "src": "fontawesome"
+    },
+    {
+      "uid": "598a5f2bcf3521d1615de8e1881ccd17",
+      "css": "clock",
+      "code": 59401,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ab656e280958018a7859eba9a1eabbc7",
+      "css": "award",
+      "code": 59402,
+      "src": "fontawesome"
     }
   ]
 }
