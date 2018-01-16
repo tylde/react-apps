@@ -1,0 +1,47 @@
+.expenses-table {
+  // background-color: #ffe4c4;
+  width: 700px;
+  
+
+  border-collapse: collapse;
+  border: 1px solid #444;
+
+  th, tr {
+    text-align: center;
+    height: 35px;
+    padding: 0px 0px;
+  }
+  th {
+    background-color: #4CAF50;
+    color: white;   
+  }
+
+  tr {
+    transition: background-color 0.2s;
+    &:hover { background-color: rgb(255, 236, 70); }
+    &:nth-child(even) {
+      background-color: #f2f2f2;
+      &:hover { background-color: rgb(255, 236, 70); }
+    }
+  }
+
+  
+  .table-row-type {
+    width: 50px;
+  }
+  .table-row-name {
+    text-align: left;
+    padding-left: 10px;
+  }
+
+
+
+  // tr.table-row-inc {
+  //   background-color: rgba(0, 137, 0, 0.514);
+  //   color: white;
+  // }
+  // tr.table-row-exp {
+  //   background-color: rgb(137, 16, 0);
+  //   color: white;
+  // }
+}

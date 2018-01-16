@@ -16,7 +16,7 @@ export default class Main extends Component {
     return (
       <div className="main-container">
         <Switch>
-          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/" component={Expenses} />
           <Route path="/expenses" component={Expenses} />
           <Route component={NotFound} />
         </Switch>

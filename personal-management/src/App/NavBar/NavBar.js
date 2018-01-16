@@ -21,7 +21,7 @@ export default class NavBar extends Component {
 
   render() {
     return (
-      <div className="navbar-container" style={this.state.collapsed ? { width: '50px' } : { width: '250px' }}>
+      <div className="navbar-container" style={this.state.collapsed ? { width: '50px', minWidth: '50px' } : { width: '250px', minWidth: '250px' }}>
         <div className="logo-container">
           <button
             className="navbar-collapse-button"
