@@ -14,9 +14,8 @@ export default class App extends Component {
 
       <BrowserRouter history={browserHistory}>
         <div className="app-container">
-
           <NavBar />
-          <div className="middle-container">
+          <div className="right-container">
             <Header />
             <Main />
           </div>
