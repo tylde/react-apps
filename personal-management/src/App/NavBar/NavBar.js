@@ -26,7 +26,7 @@ export default class NavBar extends Component {
           <button
             className="navbar-collapse-button"
             onClick={this.handleCollapseClick}>
-            <i className={this.state.collapsed ? 'icon-plus' : 'icon-minus'} />
+            <i className={this.state.collapsed ? 'icon-right-open' : 'icon-left-open'} />
           </button>
         </div>
 

@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './Expenses.scss';
 
 import ExpensesTable from './ExpensesTable';
+import ExpensesAddRow from './ExpensesAddRow';
+import ExpensesBalance from './ExpensesBalance';
 
 export default class Expenses extends Component {
   constructor(props) {
@@ -13,7 +15,8 @@ export default class Expenses extends Component {
     return (
       <div className="expenses-container page">
         <div className="expenses-main">
-          <div className="expenses-add">Add</div>
+          {/* <ExpensesBalance /> */}
+          <ExpensesAddRow />
           <ExpensesTable />
         </div>
         {/* <div className="expenses-aside">

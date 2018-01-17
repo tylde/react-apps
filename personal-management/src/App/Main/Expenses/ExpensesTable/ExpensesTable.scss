@@ -1,47 +1,93 @@
-.expenses-table {
-  // background-color: #ffe4c4;
+.expenses-table-container {
   width: 700px;
-  
+  // height: 400px;
+  display: flex;
+  // height: 100%;
+  flex-grow: 1;
+    // overflow-y: scroll;
+    // overflow: hidden;
+    background-color: #fff;
+    flex-direction: column;
+    overflow-y: scroll; 
 
-  border-collapse: collapse;
-  border: 1px solid #444;
+  -webkit-box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
 
-  th, tr {
-    text-align: center;
-    height: 35px;
-    padding: 0px 0px;
-  }
-  th {
-    background-color: #4CAF50;
-    color: white;   
-  }
+  .expenses-table {
+    // background-color: #ffe4c4;
+    width: 690px;
 
-  tr {
-    transition: background-color 0.2s;
-    &:hover { background-color: rgb(255, 236, 70); }
-    &:nth-child(even) {
-      background-color: #f2f2f2;
-      &:hover { background-color: rgb(255, 236, 70); }
+    border-collapse: collapse;  
+
+    &.fixed-header {
+      position: fixed;
+      th, td {
+        &:nth-child(2) { width: 127px; }
+        &:nth-child(3) { width: 223px; }
+      }
+
     }
-  }
 
+    th, td {
+      &:nth-child(1) { width: 50px; }
+      &:nth-child(2) { width: 125px; }
+      &:nth-child(3) { width: 225px; }
+      &:nth-child(4) { width: 100px; }
+      &:nth-child(5) { width: 100px; }
+      &:nth-child(6) { width: 100px; }
+    }
+
+    th, td, tr {
+      text-align: center;
+      height: 35px;
+      padding: 0px 0px;
+    }
+    th {
+      background-color: #4CAF50;
+      
+      transition: background-color 0.2s;
+      &:hover:not(.table-row-type) {
+        background-color: rgb(65, 151, 69);
+        cursor: pointer;
+      }
+      color: white;   
+
+      border-bottom: 1px solid rgb(49, 131, 51);
+      &:not(:last-of-type) {
+        border-right: 1px solid rgb(49, 131, 51);
+      }
+    }
+
+    tr {
+      transition: background-color 0.2s;
+      background-color: #fff;      
+      &:hover { background-color: rgb(255, 243, 132); }
+      &:nth-child(even) {
+        background-color: #f2f2f2;
+        &:hover { background-color: rgb(255, 243, 132); }
+      }
+      &:last-child {
+        border-bottom: 1px solid #ccc;
+      }
+    }
+
+
+    td {
+      border-top: 1px solid #ccc;
+      &:not(:last-of-type) {
+        border-right: 1px solid #ccc;
+      }
+
+      &.inc {
+        color: rgb(52, 153, 66);
+      }
+      &.exp {
+        color: rgb(146, 25, 25);
+      }
+      
+    }
   
-  .table-row-type {
-    width: 50px;
-  }
-  .table-row-name {
-    text-align: left;
-    padding-left: 10px;
   }
 
-
-
-  // tr.table-row-inc {
-  //   background-color: rgba(0, 137, 0, 0.514);
-  //   color: white;
-  // }
-  // tr.table-row-exp {
-  //   background-color: rgb(137, 16, 0);
-  //   color: white;
-  // }
 }

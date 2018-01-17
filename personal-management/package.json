@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.common.js",
     "test": "mocha -r mocha-clean -r babel-core/register -r ./test/helper.js -r ./test/dom.js -r ./test/scss.js ./src/**/*.test.js",
-    "tdd": "npm test -- --watch -R min",
+    "tdd": "npm test -- --watch -R list",
     "build": "webpack --config webpack.prod.js"
   },
   "author": "tylde",

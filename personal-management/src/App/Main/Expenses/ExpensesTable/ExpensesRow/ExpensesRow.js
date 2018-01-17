@@ -7,6 +7,7 @@ export default class ExpensesRow extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
+    timestamp: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
     name: PropTypes.string,
     quantity: PropTypes.number,
@@ -26,11 +27,17 @@ export default class ExpensesRow extends Component {
   render() {
     let amount = (this.props.quantity * this.props.price).toFixed(2);
     return (
-      <tr className={this.props.type === '+' ? "table-row-inc" : "table-row-exp"}>
+      <tr>
+        <td className={this.props.type === '+' ? "table-row-type inc" : "table-row-type exp"}>
+          {
+            this.props.type === '+' ?
+              <i className="icon-plus" /> :
+              <i className="icon-minus" />
+          }
+        </td>
         <td>{this.props.date}</td>
-        <td className="table-row-type">{this.props.type}</td>
         <td className="table-row-name">{this.props.name}</td>
-        <td>{this.props.quantity}</td>
+        <td className="table-row-quantity">{this.props.quantity}</td>
         <td>{this.props.price}</td>
         <td>{amount}</td>
       </tr>
