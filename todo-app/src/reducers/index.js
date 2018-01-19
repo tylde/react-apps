@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import {  } from '../constants/action_types';
 
-import TodoReducer from './TodoReducer'
+import exampleReducer from './exampleReducer';
 
 const rootReducer = combineReducers({
-    todos: TodoReducer
+  exampleText: exampleReducer
 });
 
 export default rootReducer;
