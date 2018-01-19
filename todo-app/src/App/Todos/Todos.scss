@@ -1,0 +1,15 @@
+.todos-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-manage {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  height: 40px;
+
+  margin: 20px auto;
+
+
+}

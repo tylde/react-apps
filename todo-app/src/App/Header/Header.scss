@@ -1,19 +1,13 @@
-.example-container {
+.header-container {
   border-bottom: 6px solid #00D8FF;
   background-color: #2f2f2f;
   color: white;
+  height: 100px;
+
   text-align: center;
-}
-.title {
-  padding-top: 20px;
   font-size: 4rem;
-  line-height: 80px;
+  line-height: 100px;
 }
 .first-letter {
   color: #00D8FF;
-}
-.description {
-  font-size: 1rem;
-  line-height: 40px;
-  padding-bottom: 20px;
 }

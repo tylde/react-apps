@@ -1,15 +1,14 @@
 import React from 'react';
-import App from './App';
+import Todos from './Todos';
 
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 
-describe('App', () => {
-  console.log('==================================================================')
+describe('Todos', () => {
 
   it('render()', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper).to.have.className('app-container');
+    const wrapper = shallow(<Todos />);
+    expect(wrapper).to.have.className('todos-container');
   });
 
   describe('contains', () => {
@@ -25,15 +24,19 @@ describe('App', () => {
       };
 
       store = mockStore(initialStore);
-      wrapper = mount(<Provider store={store}><App /></Provider>);
+      wrapper = mount(<Provider store={store}><Todos /></Provider>);
     });
 
-    it('Header', () => {
-      expect(wrapper.find('.header-container')).to.have.length(1);
+    it('TodoAdd', () => {
+      expect(wrapper.find('.todo-add-container')).to.have.length(1);
     });
 
-    it('Todos', () => {
-      expect(wrapper.find('.todos-container')).to.have.length(1);
+    it('TodoFilter', () => {
+      expect(wrapper.find('.todo-filter-container')).to.have.length(1);
+    });
+
+    it('TodoList', () => {
+      expect(wrapper.find('.todo-list-container')).to.have.length(1);
     });
 
   });

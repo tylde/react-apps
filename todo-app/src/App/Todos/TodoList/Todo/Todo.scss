@@ -1,0 +1,46 @@
+.todo-container {
+  &:not(:last-of-type), &:first-of-type {
+    
+  }
+  margin: 2px 0px;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.2rem;
+
+  position: relative;
+
+  .todo-priority {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    background-color: gray;
+    left: 4px;
+
+    &.priority-1 { background-color: #0f790f; }
+    &.priority-2 { background-color: #8bca2b; }
+    &.priority-3 { background-color: #ffd700; }
+    &.priority-4 { background-color: #f19d00; }
+    &.priority-5 { background-color: #a50000; }
+  }
+
+  .todo-isdone {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 4px;
+    left: 24px;
+
+    background-color: skyblue;
+    border-radius: 18px;
+  }
+
+  .todo-text {
+    position: absolute;
+    width: 650px;
+    height: 40px;
+    left: 70px;
+  }
+}
