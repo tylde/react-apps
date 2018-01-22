@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 
 import './HeatmapCalendar.scss';
 
@@ -37,13 +37,58 @@ export default class HeatmapCalendar extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      // today: new Date()
+    }
   }
 
   componentWillMount() {
-
+    // console.log(this.state.today);
+  }
+  componentWillUpdate() {
+    // console.log(this.state);
   }
 
   render() {
+    let daysCount = 365;
+
+    let today = new Date();
+    let lastYearDays = {};
+    // console.log(day.getTime())
+
+    for (let i = 0; i < daysCount; i++) {
+      let date = new Date(today.getTime() - i * 3600 * 24 * 1000);
+      let day = ('0' + date.getDate()).slice(-2);
+      let month = ('0' + (date.getMonth() + 1)).slice(-2);
+      let year = date.getUTCFullYear();
+      let key = `${year}-${month}-${day}`;
+      lastYearDays[key] = {
+        date: key,
+        dayOfWeek: date.getDay()
+      };
+    }
+
+
+    let getDatesRecursive = function (daysAgo) {
+      let date = new Date(today.getTime() - daysAgo * 3600 * 24 * 1000);
+      let day = ('0' + date.getDate()).slice(-2);
+      let month = ('0' + (date.getMonth() + 1)).slice(-2);
+      let year = date.getUTCFullYear();
+      let key = `${year}-${month}-${day}`;
+      lastYearDays[key] = {
+        date: key,
+        dayOfWeek: date.getDay()
+      };
+
+      if (daysAgo < 360) getDatesRecursive(daysAgo + 1);
+      else if (daysAgo >= 360 && date.getDay() != 0) getDatesRecursive(daysAgo + 1);
+      else return;
+    }
+
+    getDatesRecursive(0);
+
+
+    console.log(lastYearDays);
     return (
       <div className="heatmap-calendar-container">
         Heatmap Calendar
