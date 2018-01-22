@@ -5,93 +5,115 @@ import './HeatmapCalendar.scss';
 
 export default class HeatmapCalendar extends Component {
   static propTypes = {
-
+    scale: PropTypes.arrayOf(PropTypes.shape({
+      from: PropTypes.number.isRequired,
+      to: PropTypes.number.isRequired,
+      color: PropTypes.string.isRequired
+    })).isRequired,
+    values: PropTypes.objectOf(PropTypes.object).isRequired,
+    generatedDays: PropTypes.number,
+    showValue: PropTypes.bool,
+    showDate: PropTypes.bool
   }
 
   static defaultProps = {
-    scale: {
-      0: { from: 0, to: 0, color: '#DDD' },
-      1: { from: 1, to: 1, color: '#F4A661' },
-      2: { from: 2, to: 2, color: '#F49949' },
-      3: { from: 3, to: 3, color: '#F48C30' },
-      4: { from: 4, to: 4, color: '#FF6D19' },
-      5: { from: 5, to: 5, color: '#FF5D00' }
-    },
-    values: [
-      { date: '2017-11-25', value: 1 },
-      { date: '2017-12-07', value: 4 },
-      { date: '2017-12-12', value: 2 },
-      { date: '2017-12-19', value: 2 },
-      { date: '2017-12-23', value: 3 },
-      { date: '2017-12-28', value: 1 },
-      { date: '2017-12-30', value: 1 },
-      { date: '2018-01-04', value: 2 },
-      { date: '2018-01-06', value: 5 },
-      { date: '2018-01-09', value: 2 },
-      { date: '2018-01-14', value: 5 },
-      { date: '2018-01-16', value: 3 },
-      { date: '2018-01-18', value: 4 },
-      { date: '2018-01-21', value: 2 }
-    ]
+    generatedDays: 365,
+    showValue: true,
+    showDate: true
   }
 
   constructor(props) {
     super(props);
-    this.state = {
-      // today: new Date()
-    }
   }
 
-  componentWillMount() {
-    // console.log(this.state.today);
+  generateWeeks(data) {
+    return data.map((week, index) => {
+      return (
+        <div className="heatmap-column" key={'week-' + index}>
+          {this.generateCells(week)}
+        </div>
+      );
+    });
   }
-  componentWillUpdate() {
-    // console.log(this.state);
+  generateCells(data) {
+    return data.map((cell) => {
+      let style = {};
+      let value = 0;
+      // console.log(cell.date);
+      if (this.props.values[cell.date] !== undefined && this.props.values[cell.date] !== null) {
+        value = this.props.values[cell.date].value;
+        for (let i = 0; i < this.props.scale.length; i++) {
+          if (this.props.scale[i].from <= value  && value <= this.props.scale[i].to) {
+            style.backgroundColor =  this.props.scale[i].color;
+            break;
+          }
+        }
+      }
+
+      return (
+        <div className="heatmap-cell" key={cell.date} style={style}>
+          <div className="heatmap-cell-tooltip">
+            {this.props.showDate && cell.date}
+            {this.props.showDate && this.props.showValue && ': '}
+            {this.props.showValue && value}
+          </div>
+          <div className="heatmap-cell-arrow" />
+        </div>
+      );
+    });
   }
 
   render() {
-    let daysCount = 365;
-
     let today = new Date();
     let lastYearDays = {};
-    // console.log(day.getTime())
 
-    for (let i = 0; i < daysCount; i++) {
-      let date = new Date(today.getTime() - i * 3600 * 24 * 1000);
-      let day = ('0' + date.getDate()).slice(-2);
-      let month = ('0' + (date.getMonth() + 1)).slice(-2);
-      let year = date.getUTCFullYear();
-      let key = `${year}-${month}-${day}`;
-      lastYearDays[key] = {
-        date: key,
-        dayOfWeek: date.getDay()
-      };
-    }
-
+    let weeksArray = [];
+    let cellsArray = [];
 
     let getDatesRecursive = function (daysAgo) {
       let date = new Date(today.getTime() - daysAgo * 3600 * 24 * 1000);
       let day = ('0' + date.getDate()).slice(-2);
       let month = ('0' + (date.getMonth() + 1)).slice(-2);
-      let year = date.getUTCFullYear();
+      let year = date.getFullYear();
       let key = `${year}-${month}-${day}`;
       lastYearDays[key] = {
         date: key,
         dayOfWeek: date.getDay()
       };
 
-      if (daysAgo < 360) getDatesRecursive(daysAgo + 1);
-      else if (daysAgo >= 360 && date.getDay() != 0) getDatesRecursive(daysAgo + 1);
+      weeksArray.push({ date: key, day, dayOfWeek: date.getDay() });
+
+      if (date.getDay() === 0) {
+        weeksArray.reverse();
+        cellsArray.push(weeksArray);
+        weeksArray = [];
+      }
+
+      if (daysAgo < this.props.generatedDays) getDatesRecursive.call(this, daysAgo + 1);
+      else if (daysAgo >= this.props.generatedDays && date.getDay() !== 0) getDatesRecursive.call(this, daysAgo + 1);
+      else if (daysAgo >= this.props.generatedDays && date.getDay() === 0) return;
       else return;
     }
 
-    getDatesRecursive(0);
+    getDatesRecursive.call(this, 0);
+    // console.log(lastYearDays);
 
+    cellsArray.reverse();
 
-    console.log(lastYearDays);
     return (
       <div className="heatmap-calendar-container">
-        Heatmap Calendar
+        <div className="heatmap-weekdate">
+          <div className="heatmap-weekdate-cell">Su</div>
+          <div className="heatmap-weekdate-cell">Mo</div>
+          <div className="heatmap-weekdate-cell">Tu</div>
+          <div className="heatmap-weekdate-cell">We</div>
+          <div className="heatmap-weekdate-cell">Th</div>
+          <div className="heatmap-weekdate-cell">Fr</div>
+          <div className="heatmap-weekdate-cell">Sa</div>
+        </div>
+        <div className="heatmap-map">
+          {this.generateWeeks(cellsArray)}
+        </div>
       </div>
     );
   }
