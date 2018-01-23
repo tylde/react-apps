@@ -30,9 +30,10 @@ export default class App extends Component {
         '2018-01-18': { date: '2018-01-18', value: 4 },
         '2018-01-21': { date: '2018-01-21', value: 2 },
       },
-      generatedDays: 368,
+      generatedDays: 365,
       showValue: true,
-      showDate: true
+      showDate: true,
+      firstDayOfWeek: 1
     };
 
     return (

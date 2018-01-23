@@ -9,17 +9,21 @@ export default class HeatmapCalendar extends Component {
       from: PropTypes.number.isRequired,
       to: PropTypes.number.isRequired,
       color: PropTypes.string.isRequired
-    })).isRequired,
-    values: PropTypes.objectOf(PropTypes.object).isRequired,
+    })),
+    values: PropTypes.objectOf(PropTypes.object),
     generatedDays: PropTypes.number,
     showValue: PropTypes.bool,
-    showDate: PropTypes.bool
+    showDate: PropTypes.bool,
+    firstDayOfWeek: PropTypes.oneOf([0, 1])
   }
 
   static defaultProps = {
     generatedDays: 365,
+    scale: [{ from: 1, to: 999999999, color: '#104175' }],
     showValue: true,
-    showDate: true
+    showDate: true,
+    values: {},
+    firstDayOfWeek: 1
   }
 
   constructor(props) {
@@ -39,12 +43,12 @@ export default class HeatmapCalendar extends Component {
     return data.map((cell) => {
       let style = {};
       let value = 0;
-      // console.log(cell.date);
+
       if (this.props.values[cell.date] !== undefined && this.props.values[cell.date] !== null) {
         value = this.props.values[cell.date].value;
         for (let i = 0; i < this.props.scale.length; i++) {
-          if (this.props.scale[i].from <= value  && value <= this.props.scale[i].to) {
-            style.backgroundColor =  this.props.scale[i].color;
+          if (this.props.scale[i].from <= value && value <= this.props.scale[i].to) {
+            style.backgroundColor = this.props.scale[i].color;
             break;
           }
         }
@@ -65,8 +69,6 @@ export default class HeatmapCalendar extends Component {
 
   render() {
     let today = new Date();
-    let lastYearDays = {};
-
     let weeksArray = [];
     let cellsArray = [];
 
@@ -76,40 +78,36 @@ export default class HeatmapCalendar extends Component {
       let month = ('0' + (date.getMonth() + 1)).slice(-2);
       let year = date.getFullYear();
       let key = `${year}-${month}-${day}`;
-      lastYearDays[key] = {
-        date: key,
-        dayOfWeek: date.getDay()
-      };
 
       weeksArray.push({ date: key, day, dayOfWeek: date.getDay() });
 
-      if (date.getDay() === 0) {
-        weeksArray.reverse();
-        cellsArray.push(weeksArray);
+      if (date.getDay() === this.props.firstDayOfWeek) {
+        cellsArray.push(weeksArray.reverse());
         weeksArray = [];
       }
 
       if (daysAgo < this.props.generatedDays) getDatesRecursive.call(this, daysAgo + 1);
-      else if (daysAgo >= this.props.generatedDays && date.getDay() !== 0) getDatesRecursive.call(this, daysAgo + 1);
-      else if (daysAgo >= this.props.generatedDays && date.getDay() === 0) return;
+      else if (daysAgo >= this.props.generatedDays && date.getDay() !== this.props.firstDayOfWeek) getDatesRecursive.call(this, daysAgo + 1);
       else return;
     }
 
     getDatesRecursive.call(this, 0);
-    // console.log(lastYearDays);
-
     cellsArray.reverse();
+
+    let daysNames = [];
+    if (this.props.firstDayOfWeek === 0) daysNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+    else daysNames = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 
     return (
       <div className="heatmap-calendar-container">
         <div className="heatmap-weekdate">
-          <div className="heatmap-weekdate-cell">Su</div>
-          <div className="heatmap-weekdate-cell">Mo</div>
-          <div className="heatmap-weekdate-cell">Tu</div>
-          <div className="heatmap-weekdate-cell">We</div>
-          <div className="heatmap-weekdate-cell">Th</div>
-          <div className="heatmap-weekdate-cell">Fr</div>
-          <div className="heatmap-weekdate-cell">Sa</div>
+          <div className="heatmap-weekdate-cell">{daysNames[0]}</div>
+          <div className="heatmap-weekdate-cell">{daysNames[1]}</div>
+          <div className="heatmap-weekdate-cell">{daysNames[2]}</div>
+          <div className="heatmap-weekdate-cell">{daysNames[3]}</div>
+          <div className="heatmap-weekdate-cell">{daysNames[4]}</div>
+          <div className="heatmap-weekdate-cell">{daysNames[5]}</div>
+          <div className="heatmap-weekdate-cell">{daysNames[6]}</div>
         </div>
         <div className="heatmap-map">
           {this.generateWeeks(cellsArray)}
