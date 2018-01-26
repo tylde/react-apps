@@ -5,14 +5,17 @@ import './App.scss';
 import DragableModal from './DraggableModal';
 import Modal from './Modal';
 import ModalOpen from './ModalOpen';
+import ModalContainer from './ModalContainer';
 
 export default class App extends Component {
   render() {
     return (
       <div className="app-container">
         <div className="button-container">
-          <ModalOpen modalId="modal-1" />
+          <ModalOpen modalId="modal-1" text="Open Modal" />
         </div>
+        <ModalContainer />
+
 
         <DragableModal dragBy="title">
           <Modal id="modal-1">
