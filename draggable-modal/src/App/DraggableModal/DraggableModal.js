@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 export default class DraggableModal extends Component {
   static propTypes = {
+    canLeaveBody: PropTypes.bool,
     children: PropTypes.element.isRequired,
     dragBy: PropTypes.string
   }
 
   static defaultProps = {
-    dragBy: ''
+    dragBy: '',
+    canLeaveBody: false
   }
 
   constructor(props) {
@@ -85,11 +87,19 @@ export default class DraggableModal extends Component {
   onMouseMove(event) {
     if (this.state.isDragging) {
       this.setState((prevState) => {
+        let x = event.pageX - prevState.relative.x;
+        let y = event.pageY - prevState.relative.y;
+
+        if (!this.props.canLeaveBody) {
+          if (x < 0) x = 0;
+          else if (x > window.innerWidth - prevState.width) x = window.innerWidth - prevState.width
+
+          if (y < 0) y = 0;
+          else if (y > window.innerHeight - prevState.height) y = window.innerHeight - prevState.height
+        }
+
         return {
-          position: {
-            x: event.pageX - prevState.relative.x,
-            y: event.pageY - prevState.relative.y
-          }
+          position: { x, y }
         }
       });
     }
